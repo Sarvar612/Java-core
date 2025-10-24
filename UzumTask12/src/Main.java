@@ -145,9 +145,27 @@ public class Main {
         list.forEach(consumer);
     }
     public static <T> List<T> filter(List<T> list,Predicate<T> predicate){
+        //simple no stream use code
+//        List<T> list1=new ArrayList<>();
+//        for (int i = 0; i < list.size(); i++) {
+//            if(predicate.test((T) list)){
+//                list1.add(list1.get(i));
+//            }
+//        }
+//        return list1;
+
         return list.stream().filter(predicate).collect(Collectors.toList());
     }
     public static <T, M> Map<T, M> map(List<T> list, Function<T, M> function) {
+        //simple map usage
+//        Map<T,M> map=new HashMap<>();
+//        for (int i = 0; i < list.size(); i++) {
+//            map.put(list.get(i), function.apply(list.get(i)));
+//        }
+//        return map;
+
+
+
         return list.stream()
                 .collect(Collectors.toMap(
                         t -> t,
